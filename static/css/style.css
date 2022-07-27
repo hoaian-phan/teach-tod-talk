@@ -1,0 +1,8 @@
+/* background for color change */
+.color_change {
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 20px;
+  width: 500px;
+  height: 200px;
+}
