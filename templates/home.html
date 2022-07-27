@@ -3,5 +3,53 @@
 {% block title %} Teach Tod Talk {% endblock %}
 
 {% block body %}
-Welcome to the HomePage
+<main>
+  <h1>
+    Welcome to Teach Tod Talk - Where Your Toddler Have Fun with Speaking
+  </h1>
+
+  <section>
+    <h2>Customize your lesson</h2>
+    <form action="/build_lesson">
+      <div>
+        <label for="categories">Categories</label>
+        <select name="category" id="categories">
+          <option value="">--Choose a category--</option>
+          <option value="colors">Colors</option>
+          <option value="animals">Animals</option>
+          <option value="items">Items</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="length">Numbers of words</label>
+        <select name="num_words" id="length">
+          <option value="">--Choose how many words--</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+        </select>
+      </div>
+
+      <div> Choose a level:
+        <input type="radio" id="easy" name="easy" value="easy">
+        <label for="easy">Easy</label>
+        <input type="radio" id="medium" name="medium" value="medium">
+        <label for="medium">Medium</label>
+        <input type="radio" id="advanced" name="advanced" value="advanced">
+        <label for="advanced">Advanced</label>
+      </div>
+
+      <div>
+        <button type="submit" value="Go">Go</button>
+      </div>
+
+    </form>
+  </section>
+
+
+
+
+
+</main>
 {% endblock %}
