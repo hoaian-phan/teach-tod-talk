@@ -1,3 +1,21 @@
+/* color display */
+.color_display {
+  border: 1px solid black;
+  border-radius: 50px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+/* list of color display */
+.color_list {
+  display: inline-block;
+}
+
+
+
 /* background for color change */
 .color_change {
   border: 1px solid black;

@@ -1,4 +1,4 @@
-from flask import (Flask, render_template, redirect, request, flash, session)
+from flask import (Flask, render_template, redirect, request, flash, session, jsonify)
 from random import sample
 import os
 
@@ -10,8 +10,8 @@ app.secret_key = os.environ['SECRET_KEY']
 # hard-coded for now, add database later
 COLORS = {
   "easy": ['black', 'blue', 'brown', 'green', 'orange', 'pink', 'purple', 'red', 'white', 'yellow'],
-  "medium": ['grey', 'silver', 'gold', 'navy', 'peach', 'tan', 'cream', 'bronze', 'violet', 'teal'],
-  "advanced": ['olive', 'maroon', 'charcoal', 'magenta', 'mustard', 'coral', 'burgundy', 'mauve', 'rust', 'cyan', 'turquoise', 'mint', 'beige', 'ruby', 'indigo'],
+  "medium": ['grey', 'silver', 'gold', 'navy', 'chocolate', 'tan', 'aqua', 'tomato', 'violet', 'teal'],
+  "advanced": ['olive', 'maroon', 'snow', 'magenta', 'salmon', 'coral', 'lime', 'orchid', 'khaki', 'cyan', 'plum', 'turquoise', 'beige', 'indigo'],
 }
 
 @app.route("/")
@@ -45,8 +45,12 @@ def customize():
       color_list.extend(sample(COLORS['medium'], medium_num))
       color_list.extend(sample(COLORS['advanced'], advanced_num))
     print(color_list)
+
+    # Return jsonify if the request is for json, else render html template
+    if request.headers['Accept'] == 'application/json':
+      return jsonify({"status": "success", "colors": color_list})
   
-  return render_template("colors.html", colors=color_list)
+    return render_template("colors.html", colors=color_list)
   
 
 

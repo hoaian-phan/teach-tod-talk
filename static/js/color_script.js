@@ -1,19 +1,27 @@
 'use strict';
 
+// Get the color list from html
+const color_lst = document.querySelectorAll('.color_display');
+let colors = []
+for (const colour of color_lst) {
+  const color = colour.innerText;
+  colors.push(color);
+}
+console.log(colors);
+
+
+// Calling Web Speech APIs
+
 const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
 const SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
-
-const colors = ['black', 'blue', 'brown', 'green', 'orange', 'pink', 'purple', 'red', 'white', 'yellow']
-
 const recognition = new SpeechRecognition();
-if (SpeechGrammarList) {
-  const speechRecognitionList = new SpeechGrammarList();
-  const grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
-  speechRecognitionList.addFromString(grammar, 1);
-  recognition.grammars = speechRecognitionList;
-}
+const speechRecognitionList = new SpeechGrammarList();
+const grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
+speechRecognitionList.addFromString(grammar, 1);
+recognition.grammars = speechRecognitionList;
+
 recognition.continuous = false;
 recognition.lang = 'en-US';
 recognition.interimResults = false;
@@ -21,14 +29,6 @@ recognition.maxAlternatives = 1;
 
 const diagnostic = document.querySelector('.output');
 const bg = document.querySelector('.color_change');
-const hints = document.querySelector('.hints');
-
-let colorHTML = '';
-colors.forEach(function (v, i, a) {
-  console.log(v, i);
-  colorHTML += '<button style="background-color:' + v + ';"> ' + v + ' </button>';
-});
-hints.innerHTML = 'Tap/click then say a color to change the background color of the app. Try ' + colorHTML + '.';
 
 document.body.onclick = function () {
   recognition.start();
@@ -46,8 +46,12 @@ recognition.onresult = function (event) {
   // We then return the transcript property of the SpeechRecognitionAlternative object
   var color = event.results[0][0].transcript;
   diagnostic.textContent = 'Result received: ' + color + '.';
-  bg.style.backgroundColor = color;
-  console.log('Confidence: ' + event.results[0][0].confidence);
+  if (colors.includes(color)) {
+    bg.style.backgroundColor = color;
+    console.log('Confidence: ' + event.results[0][0].confidence);
+  } else {
+    console.log("Color is not in the lesson.");
+  }
 }
 
 recognition.onspeechend = function () {

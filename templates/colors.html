@@ -9,7 +9,13 @@
   </h1>
 
   <section>
-    <p class="hints"></p>
+    <h4> Tap or click then say one of the colors out loud:</h4>
+    {% for color in colors %}
+    <div class="color_list">
+      <div class="color_display" id="{{color}}" value="{{color}}" style=background-color:{{color}};>{{color}}</div>
+      <input type="hidden" id="colors" value="{{colors}}">
+    </div>
+    {% endfor %}
   </section>
 
   <section>
