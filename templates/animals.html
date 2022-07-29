@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<main>
+  <h1>
+    Have Fun with Animals
+  </h1>
+
+  <section>
+    <h4> Tap or click then say one of the animals out loud:</h4>
+    {% for animal in animals %}
+    <div class="animal_list">
+      <div class="animal_display">{{animal}}</div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <section>
+    <div class="animal_result"></div>
+  </section>
+
+  <section>
+    <p class="output">Result message</p>
+  </section>
+
+
+
+
+
+</main>
+{% endblock %}
+
+{% block afterbody %}
+<script src="/static/js/animal_script.js"></script>
+{% endblock %}
