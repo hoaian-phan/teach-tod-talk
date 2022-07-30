@@ -9,26 +9,57 @@ app.secret_key = os.environ['SECRET_KEY']
 
 # hard-coded for now, add database later
 CATEGORIES = {
-  "colors": { "easy": ['black', 'blue', 'brown', 'green', 'orange', 'pink', 'purple', 'red', 'white', 'yellow'],
-              "medium": ['grey', 'silver', 'gold', 'navy', 'chocolate', 'tan', 'aqua', 'tomato', 'violet', 'teal'],
-              "advanced": ['olive', 'maroon', 'snow', 'magenta', 'salmon', 'coral', 'lime', 'orchid', 'khaki', 'cyan', 'plum', 'turquoise', 'beige', 'indigo'],
-            },
-  "animals": {"easy": ['dog', 'cat', 'cow', 'chicken', 'duck', 'sheep', 'pig', 'fish', 'bird', 'horse'],
-              "medium": ['lion', 'brea', 'tiger', 'goat', 'monkey', 'deer', 'mouse', 'dolphin', 'crab', 'frog'],
-              "advanced": ['zebra', 'shark', 'rabbit', 'shrimp', 'bee', 'butterfly', 'lobster', 'caterpillar', 'octopus', 'elephant', 'pigeon', 'donkey', 'turkey', 'squirrel', 'panda', 'giraffe']
-            },
+  "colors": { 
+    "easy": ['black', 'blue', 'brown', 'green', 'orange', 'pink', 'purple', 'red', 'white', 'yellow'],
+    "medium": ['grey', 'silver', 'gold', 'navy', 'chocolate', 'tan', 'aqua', 'tomato', 'violet', 'teal'],
+    "advanced": ['olive', 'maroon', 'magenta', 'salmon', 'coral', 'lime', 'orchid', 'khaki', 'cyan', 'plum', 'turquoise', 'beige', 'indigo'],
+  },
+  
+  "animals": {
+    "easy": [
+      {'dog': '/static/image/dog.jpg'},
+      {'cat': '/static/image/cat.jpg'},
+      {'cow': '/static/image/cow.jpg'}, 
+      {'chicken': '/static/image/chicken.jpg'},
+      {'duck': '/static/image/duck.jpg'}, 
+      {'sheep': '/static/image/sheep.jpg'}, 
+      {'pig': '/static/image/pig.jpg'},
+      {'fish': '/static/image/fish.jpg'}, 
+      {'bird': '/static/image/bird.jpg'}, 
+      {'horse': '/static/image/horse.jpg'}
+    ],
+    "medium": [
+      {'lion': '/static/image/lion.jpg'},
+      {'bear': '/static/image/bear.jpg'},
+      {'tiger': '/static/image/tiger.jpg'},
+      {'turtle': '/static/image/turtle.jpg'},
+      {'monkey': '/static/image/monkey.jpg'},
+      {'deer': '/static/image/deer.jpg'},
+      {'mouse': '/static/image/mouse.jpg'},
+      {'dolphin': '/static/image/dolphin.jpg'},
+      {'crab': '/static/image/crab.jpg'},
+      {'frog': '/static/image/frog.jpg'}
+    ],
+    "advanced": [ 
+      {'zebra': '/static/image/zebra.jpg'},
+      {'shark': '/static/image/shark.jpg'},
+      {'rabbit': '/static/image/rabbit.jpg'},
+      {'shrimp': '/static/image/shrimp.jpg'},
+      {'bee': '/static/image/bee.jpg'},
+      {'butterfly': '/static/image/butterfly.jpg'},
+      {'lobster': '/static/image/lobster.jpg'},
+      {'caterpillar': '/static/image/caterpillar.jpg'},
+      {'octopus': '/static/image/octopus.jpg'},
+      {'elephant': '/static/image/elephant.jpg'},
+      {'pigeon': '/static/image/pigeon.jpg'},
+      {'donkey': '/static/image/donkey.jpg'},
+      {'turkey': '/static/image/turkey.jpg'},
+      {'squirrel': '/static/image/squirrel.jpg'},
+      {'panda': '/static/image/panda.jpg'},
+      {'giraffe': '/static/image/giraffe.jpg'}
+    ]
+  }
 }
-# COLORS = {
-#   "easy": ['black', 'blue', 'brown', 'green', 'orange', 'pink', 'purple', 'red', 'white', 'yellow'],
-#   "medium": ['grey', 'silver', 'gold', 'navy', 'chocolate', 'tan', 'aqua', 'tomato', 'violet', 'teal'],
-#   "advanced": ['olive', 'maroon', 'snow', 'magenta', 'salmon', 'coral', 'lime', 'orchid', 'khaki', 'cyan', 'plum', 'turquoise', 'beige', 'indigo'],
-# }
-
-# ANIMALS = {
-#   "easy": ['dog', 'cat', 'cow', 'chicken', 'duck', 'sheep', 'pig', 'fish', 'bird', 'horse'],
-#   "medium": ['lion', 'brea', 'tiger', 'goat', 'monkey', 'deer', 'mouse', 'dolphin', 'crab', 'frog'],
-#   "advanced": ['zebra', 'shark', 'rabbit', 'shrimp', 'bee', 'butterfly', 'lobster', 'caterpillar', 'octopus', 'elephant', 'pigeon', 'donkey', 'turkey', 'squirrel', 'panda', 'giraffe']
-# }
 
 @app.route("/")
 def home():
@@ -51,7 +82,6 @@ def generate_list(category, num_words, level):
     lst = sample(CATEGORIES[category]['easy'], easy_num)
     lst.extend(sample(CATEGORIES[category]['medium'], medium_num))
     lst.extend(sample(CATEGORIES[category]['advanced'], advanced_num))
-  print(lst)
   return lst
 
 @app.route("/build_lesson")
@@ -74,6 +104,7 @@ def customize():
   # Animals
   elif category == 'animals':
     animal_list = generate_list(category=category, num_words=num_words, level=level)
+    print(animal_list)
 
     return render_template("animals.html", animals=animal_list)
 

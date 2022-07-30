@@ -1,6 +1,6 @@
 'use strict';
 
-// Get the color list from html
+// Get the animal list from html to make speechRecognition grammar
 const animal_lst = document.querySelectorAll('.animal_display');
 let animals = []
 for (const animal of animal_lst) {
@@ -28,7 +28,7 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 const diagnostic = document.querySelector('.output');
-const bg = document.querySelector('.color_change');
+const image = document.querySelector('.animal_result img');
 
 document.body.onclick = function () {
   recognition.start();
@@ -48,9 +48,10 @@ recognition.onresult = function (event) {
   animal = animal.toLowerCase();
   diagnostic.textContent = 'Result received: ' + animal + '.';
   if (animals.includes(animal)) {
-    // bg.style.backgroundanimal = animal;
+    image.setAttribute('src', document.querySelector(`#hidden_animal_${animal}`).value);
     console.log('Confidence: ' + event.results[0][0].confidence);
   } else {
+    image.setAttribute('src', '');
     console.log("Animal is not in the lesson.");
   }
 }

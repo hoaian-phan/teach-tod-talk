@@ -27,3 +27,8 @@
   width: 500px;
   height: 200px;
 }
+
+/* image size */
+img {
+  height: 100%;
+}
