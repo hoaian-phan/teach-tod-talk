@@ -46,12 +46,13 @@ recognition.onresult = function (event) {
   // We then return the transcript property of the SpeechRecognitionAlternative object
   let color = event.results[0][0].transcript;
   color = color.toLowerCase();
-  diagnostic.textContent = 'Result received: ' + color + '.';
+  diagnostic.textContent = 'Result received: ' + color + '. ';
   if (colors.includes(color)) {
     bg.style.backgroundColor = color;
     console.log('Confidence: ' + event.results[0][0].confidence);
   } else {
-    console.log("Color is not in the lesson.");
+    diagnostic.insertAdjacentHTML("beforeend", " Word is not in the lesson.")
+    console.log("Word is not in the lesson.");
   }
 }
 
@@ -60,9 +61,9 @@ recognition.onspeechend = function () {
 }
 
 recognition.onnomatch = function (event) {
-  diagnostic.textContent = "I didn't recognise that color.";
+  diagnostic.textContent = "I didn't recognize that word.";
 }
 
 recognition.onerror = function (event) {
-  diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+  diagnostic.textContent = 'Error occurred in recognition: ' + event.error + '. Make sure you tap or click and say the word out loud.';
 }

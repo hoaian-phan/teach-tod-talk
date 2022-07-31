@@ -46,12 +46,13 @@ recognition.onresult = function (event) {
   // We then return the transcript property of the SpeechRecognitionAlternative object
   let word = event.results[0][0].transcript;
   word = word.toLowerCase();
-  diagnostic.textContent = 'Result received: ' + word + '.';
+  diagnostic.textContent = 'Result received: ' + word + '. ';
   if (words.includes(word)) {
     image.setAttribute('src', document.querySelector(`#hidden_word_${word}`).value);
     console.log('Confidence: ' + event.results[0][0].confidence);
   } else {
     image.setAttribute('src', '');
+    diagnostic.insertAdjacentHTML("beforeend", " Word is not in the lesson.")
     console.log("Word is not in the lesson.");
   }
 }
@@ -61,9 +62,9 @@ recognition.onspeechend = function () {
 }
 
 recognition.onnomatch = function (event) {
-  diagnostic.textContent = "I didn't recognise that word.";
+  diagnostic.textContent = "I didn't recognize that word.";
 }
 
 recognition.onerror = function (event) {
-  diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+  diagnostic.textContent = 'Error occurred in recognition: ' + event.error + '. Make sure you tap or click and say the word out loud.';
 }

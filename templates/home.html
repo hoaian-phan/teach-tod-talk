@@ -11,7 +11,7 @@
     <form action="/build_lesson">
       <div>
         <label for="categories">Categories</label>
-        <select name="category" id="categories">
+        <select name="category" id="categories" required>
           <option value="">--Choose a category--</option>
           <option value="colors">Colors</option>
           <option value="animals">Animals</option>
@@ -21,7 +21,7 @@
 
       <div>
         <label for="length">Numbers of words</label>
-        <select name="num_words" id="length">
+        <select name="num_words" id="length" required>
           <option value="">--Choose how many words--</option>
           <option value="5">5</option>
           <option value="8">8</option>
@@ -30,16 +30,16 @@
       </div>
 
       <div> Choose a level:
-        <input type="radio" id="easy" name="level" value="easy">
+        <input type="radio" id="easy" name="level" value="easy" required>
         <label for="easy">Easy</label>
-        <input type="radio" id="medium" name="level" value="medium">
+        <input type="radio" id="medium" name="level" value="medium" required>
         <label for="medium">Medium</label>
-        <input type="radio" id="advanced" name="level" value="advanced">
+        <input type="radio" id="advanced" name="level" value="advanced" required>
         <label for="advanced">Advanced</label>
       </div>
 
       <div>
-        <button type="submit" value="Go">Go</button>
+        <button type="submit" value="build">Build</button>
       </div>
 
     </form>

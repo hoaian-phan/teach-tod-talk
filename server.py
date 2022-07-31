@@ -105,12 +105,8 @@ CATEGORIES = {
   }
 }
 
-@app.route("/")
-def home():
-  """ Display homepage """
 
-  return render_template("home.html")
-
+# Function to generate a word list for a lesson plan
 def generate_list(category, num_words, level):
   lst = []
   if level == 'easy':
@@ -127,6 +123,14 @@ def generate_list(category, num_words, level):
     lst.extend(sample(CATEGORIES[category]['medium'], medium_num))
     lst.extend(sample(CATEGORIES[category]['advanced'], advanced_num))
   return lst
+
+
+@app.route("/")
+def home():
+  """ Display homepage """
+
+  return render_template("home.html")
+
 
 @app.route("/build_lesson")
 def customize():
