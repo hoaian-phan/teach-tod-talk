@@ -58,6 +58,50 @@ CATEGORIES = {
       {'panda': '/static/image/panda.jpg'},
       {'giraffe': '/static/image/giraffe.jpg'}
     ]
+  },
+
+  "fruits": {
+    "easy": [
+      {'apple': '/static/image/apple.jpg'},
+      {'banana': '/static/image/banana.jpg'},
+      {'pear': '/static/image/pear.jpg'}, 
+      {'grape': '/static/image/grape.jpg'},
+      {'strawberry': '/static/image/strawberry.jpg'}, 
+      {'orange': '/static/image/orange.jpg'}, 
+      {'lemon': '/static/image/lemon.jpg'},
+      {'mango': '/static/image/mango.jpg'}, 
+      {'kiwi': '/static/image/kiwi.jpg'}, 
+      {'cherry': '/static/image/cherry.jpg'}
+    ],
+    "medium": [
+      {'fig': '/static/image/fig.jpg'},
+      {'coconut': '/static/image/coconut.jpg'},
+      {'peach': '/static/image/peach.jpg'},
+      {'blueberry': '/static/image/blueberry.jpg'},
+      {'avocado': '/static/image/avocado.jpg'},
+      {'date': '/static/image/date.jpg'},
+      {'plum': '/static/image/mouse.jpg'},
+      {'papaya': '/static/image/papaya.jpg'},
+      {'watermelon': '/static/image/watermelon.jpg'},
+      {'pineapple': '/static/image/pineapple.jpg'}
+    ],
+    "advanced": [ 
+      {'raspberry': '/static/image/raspberry.jpg'},
+      {'longan': '/static/image/longan.jpg'},
+      {'apricot': '/static/image/apricot.jpg'},
+      {'honeydew': '/static/image/honeydew.jpg'},
+      {'mangosteen': '/static/image/mangosteen.jpg'},
+      {'dragonfruit': '/static/image/dragonfruit.jpg'},
+      {'nectarine': '/static/image/nectarine.jpg'},
+      {'cantaloupe': '/static/image/cantaloupe.jpg'},
+      {'durian': '/static/image/durian.jpg'},
+      {'grapefruit': '/static/image/grapefruit.jpg'},
+      {'guava': '/static/image/guava.jpg'},
+      {'jackfruit': '/static/image/jackfruit.jpg'},
+      {'lychee': '/static/image/lychee.jpg'},
+      {'pomegranate': '/static/image/pomegranate.jpg'},
+      {'tangerine': '/static/image/tangerine.jpg'},
+    ]
   }
 }
 
@@ -95,18 +139,19 @@ def customize():
   if category == 'colors':
     color_list = generate_list(category=category, num_words=num_words, level=level)
 
-    # Return jsonify if the request is for json, else render html template
-    if request.headers['Accept'] == 'application/json':
-      return jsonify({"status": "success", "colors": color_list})
-
     return render_template("colors.html", colors=color_list)
 
-  # Animals
-  elif category == 'animals':
-    animal_list = generate_list(category=category, num_words=num_words, level=level)
-    print(animal_list)
+  # Animals and Fruits
+  elif category == 'animals' or category == 'fruits':
+    word_list = generate_list(category=category, num_words=num_words, level=level)
 
-    return render_template("animals.html", animals=animal_list)
+    return render_template("words.html", words=word_list)
+
+  # Error handling
+  else:
+    flash("Please choose a category")
+    return redirect("/")
+
 
   
 

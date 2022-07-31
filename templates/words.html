@@ -8,11 +8,11 @@
 
   <section>
     <h4> Tap or click then say one of the animals out loud:</h4>
-    {% for animal_dict in animals %}
-    {% for key, value in animal_dict.items() %}
-    <div class="animal_list">
-      <div class="animal_display">{{key}}</div>
-      <input id="hidden_animal_{{key}}" type="hidden" value="{{value}}">
+    {% for dict in words %}
+    {% for key, value in dict.items() %}
+    <div class="word_list">
+      <div class="word_display">{{key}}</div>
+      <input id="hidden_word_{{key}}" type="hidden" value="{{value}}">
     </div>
     {% endfor %}
     {% endfor %}
@@ -20,7 +20,7 @@
   </section>
 
   <section>
-    <div class="animal_result">
+    <div class="word_result">
       <img src="">
     </div>
 
@@ -38,5 +38,5 @@
 {% endblock %}
 
 {% block afterbody %}
-<script src="/static/js/animal_script.js"></script>
+<script src="/static/js/script.js"></script>
 {% endblock %}

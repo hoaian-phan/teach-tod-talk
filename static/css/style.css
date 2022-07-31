@@ -1,6 +1,6 @@
 /* color display */
 .color_display,
-.animal_display {
+.word_display {
   border: 1px solid black;
   border-radius: 50px;
   width: 150px;
@@ -12,7 +12,7 @@
 
 /* list of color display */
 .color_list,
-.animal_list {
+.word_list {
   display: inline-block;
 }
 
@@ -20,7 +20,7 @@
 
 /* background for color change */
 .color_change,
-.animal_result {
+.word_result {
   border: 1px solid black;
   background-color: white;
   border-radius: 20px;

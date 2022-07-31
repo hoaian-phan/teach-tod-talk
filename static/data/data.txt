@@ -48,5 +48,50 @@ CATEGORIES = {
       {'panda': '/static/image/panda.jpg'},
       {'giraffe': '/static/image/giraffe.jpg'}
     ]
+  },
+
+  "fruits": {
+    "easy": [
+      {'apple': '/static/image/apple.jpg'},
+      {'banana': '/static/image/banana.jpg'},
+      {'pear': '/static/image/pear.jpg'}, 
+      {'grape': '/static/image/grape.jpg'},
+      {'duck': '/static/image/duck.jpg'}, 
+      {'orange': '/static/image/orange.jpg'}, 
+      {'lemon': '/static/image/lemon.jpg'},
+      {'mango': '/static/image/mango.jpg'}, 
+      {'kiwi': '/static/image/kiwi.jpg'}, 
+      {'cherry': '/static/image/cherry.jpg'}
+    ],
+    "medium": [
+      {'strawberry': '/static/image/strawberry.jpg'},
+      {'coconut': '/static/image/coconut.jpg'},
+      {'peach': '/static/image/peach.jpg'},
+      {'blueberry': '/static/image/blueberry.jpg'},
+      {'avocado': '/static/image/avocado.jpg'},
+      {'date': '/static/image/date.jpg'},
+      {'plum': '/static/image/mouse.jpg'},
+      {'papaya': '/static/image/papaya.jpg'},
+      {'watermelon': '/static/image/watermelon.jpg'},
+      {'pineapple': '/static/image/pineapple.jpg'}
+    ],
+    "advanced": [ 
+      {'raspberry': '/static/image/raspberry.jpg'},
+      {'longan': '/static/image/longan.jpg'},
+      {'apricot': '/static/image/apricot.jpg'},
+      {'honeydew': '/static/image/honeydew.jpg'},
+      {'mangosteen': '/static/image/mangosteen.jpg'},
+      {'dragonfruit': '/static/image/dragonfruit.jpg'},
+      {'nectarine': '/static/image/nectarine.jpg'},
+      {'cantaloupe': '/static/image/cantaloupe.jpg'},
+      {'durian': '/static/image/durian.jpg'},
+      {'grapefruit': '/static/image/grapefruit.jpg'},
+      {'guava': '/static/image/guava.jpg'},
+      {'jackfruit': '/static/image/jackfruit.jpg'},
+      {'lychee': '/static/image/lychee.jpg'},
+      {'pomegranate': '/static/image/pomegranate.jpg'},
+      {'tangerine': '/static/image/tangerine.jpg'},
+      {'wintermelon': '/static/image/wintermelon.jpg'}
+    ]
   }
 }

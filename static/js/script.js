@@ -1,13 +1,13 @@
 'use strict';
 
 // Get the animal list from html to make speechRecognition grammar
-const animal_lst = document.querySelectorAll('.animal_display');
-let animals = []
-for (const animal of animal_lst) {
-  const pet = animal.innerText;
-  animals.push(pet);
+const word_lst = document.querySelectorAll('.word_display');
+let words = []
+for (const word of word_lst) {
+  const pet = word.innerText;
+  words.push(pet);
 }
-console.log(animals);
+console.log(words);
 
 
 // Calling Web Speech APIs
@@ -18,7 +18,7 @@ const SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechReco
 
 const recognition = new SpeechRecognition();
 const speechRecognitionList = new SpeechGrammarList();
-const grammar = '#JSGF V1.0; grammar animals; public <animal> = ' + animals.join(' | ') + ' ;'
+const grammar = '#JSGF V1.0; grammar words; public <word> = ' + words.join(' | ') + ' ;'
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
 
@@ -28,7 +28,7 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 const diagnostic = document.querySelector('.output');
-const image = document.querySelector('.animal_result img');
+const image = document.querySelector('.word_result img');
 
 document.body.onclick = function () {
   recognition.start();
@@ -44,15 +44,15 @@ recognition.onresult = function (event) {
   // These also have getters so they can be accessed like arrays.
   // The second [0] returns the SpeechRecognitionAlternative at position 0.
   // We then return the transcript property of the SpeechRecognitionAlternative object
-  let animal = event.results[0][0].transcript;
-  animal = animal.toLowerCase();
-  diagnostic.textContent = 'Result received: ' + animal + '.';
-  if (animals.includes(animal)) {
-    image.setAttribute('src', document.querySelector(`#hidden_animal_${animal}`).value);
+  let word = event.results[0][0].transcript;
+  word = word.toLowerCase();
+  diagnostic.textContent = 'Result received: ' + word + '.';
+  if (words.includes(word)) {
+    image.setAttribute('src', document.querySelector(`#hidden_word_${word}`).value);
     console.log('Confidence: ' + event.results[0][0].confidence);
   } else {
     image.setAttribute('src', '');
-    console.log("Animal is not in the lesson.");
+    console.log("Word is not in the lesson.");
   }
 }
 
@@ -61,7 +61,7 @@ recognition.onspeechend = function () {
 }
 
 recognition.onnomatch = function (event) {
-  diagnostic.textContent = "I didn't recognise that animal.";
+  diagnostic.textContent = "I didn't recognise that word.";
 }
 
 recognition.onerror = function (event) {
