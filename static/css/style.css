@@ -1,3 +1,50 @@
+/* typography */
+body {
+  font-family: 'Mulish', sans-serif;
+  background-color: blanchedalmond;
+
+}
+
+h1 {
+  font-family: 'Architects Daughter', cursive;
+}
+
+h2 {
+  font-family: 'Architects Daughter', cursive;
+}
+
+/* banner homepage */
+h1.banner {
+  background-image: url("/static/image/pencils-2.jpg");
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 20%);
+}
+
+/* build lesson box */
+.build_box {
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 20%);
+  background-image: url("/static/image/pencils.jpg");
+  background-size: cover;
+}
+
+/* build button */
+.build_btn {
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 20%);
+  background-color: #dcfffd;
+  border: 1px solid #dcfffd;
+  transition: transform 200mx ease-in;
+}
+
+.build_btn:hover {
+  transform: scale(1.05);
+  background-color: #7FD6E6;
+  border: 1px solid #7FD6E6;
+}
+
 /* color display */
 .color_display,
 .word_display {

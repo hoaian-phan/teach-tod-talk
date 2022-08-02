@@ -2,48 +2,67 @@
 
 {% block body %}
 <main>
-  <h1>
-    Welcome to Teach Tod Talk - Where Your Toddler Have Fun with Speaking
+  <h1 class="container-fluid my-5 p-5 text-center banner fw-bold">
+    Welcome to Teach Tod Talk <br> Where Your Toddler Have Fun with Speaking
   </h1>
 
-  <section>
-    <h2>Build your lesson</h2>
-    <form action="/build_lesson">
-      <div>
-        <label for="categories">Categories</label>
-        <select name="category" id="categories" required>
-          <option value="">--Choose a category--</option>
-          <option value="colors">Colors</option>
-          <option value="animals">Animals</option>
-          <option value="fruits">Fruits</option>
-        </select>
-      </div>
+  <div class="container ">
+    <div class="row justify-content-lg-center">
+      <div class="col col-lg-2"></div>
 
-      <div>
-        <label for="length">Numbers of words</label>
-        <select name="num_words" id="length" required>
-          <option value="">--Choose how many words--</option>
-          <option value="5">5</option>
-          <option value="8">8</option>
-          <option value="10">10</option>
-        </select>
-      </div>
+      <section class="container my-5 py-5 build_box col-12 col-lg-6">
 
-      <div> Choose a level:
-        <input type="radio" id="easy" name="level" value="easy" required>
-        <label for="easy">Easy</label>
-        <input type="radio" id="medium" name="level" value="medium" required>
-        <label for="medium">Medium</label>
-        <input type="radio" id="advanced" name="level" value="advanced" required>
-        <label for="advanced">Advanced</label>
-      </div>
+        <h2 class="text-center fw-bold">Build your lesson</h2>
 
-      <div>
-        <button type="submit" value="build">Build</button>
-      </div>
+        <form action="/build_lesson" class="my-3 fw-bold container-fluid">
+          <div class="my-4">
+            <label for="categories">Categories</label>
+            <select name="category" id="categories" class="form-select mt-2" aria-label="Default select example"
+              required>
+              <option value="">--Select one--</option>
+              <option value="colors">Colors</option>
+              <option value="animals">Animals</option>
+              <option value="fruits">Fruits</option>
+            </select>
+          </div>
 
-    </form>
-  </section>
+          <div class="my-4">
+            <label for="length">Numbers of words</label>
+            <select name="num_words" id="length" class="form-select mt-2" aria-label="Default select example" required>
+              <option value="">--Select one--</option>
+              <option value="5">5</option>
+              <option value="8">8</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+
+          Choose a level:
+          <div class="container-fluid d-flex justify-content-around mt-2">
+            <div class="form-check fw-normal">
+              <input type="radio" id="easy" name="level" value="easy" class="form-check-input" required>
+              <label for="easy">Easy</label>
+            </div>
+            <div class="form-check fw-normal">
+              <input type="radio" id="medium" name="level" value="medium" class="form-check-input" required>
+              <label for="medium">Medium</label>
+            </div>
+            <div class="form-check fw-normal">
+              <input type="radio" id="advanced" name="level" value="advanced" class="form-check-input" required>
+              <label for="advanced">Advanced</label>
+            </div>
+          </div>
+
+          <div class="mt-5 mb-3 text-center ">
+            <button type="submit" value="build" class="btn build_btn">Build</button>
+          </div>
+
+        </form>
+
+      </section>
+
+      <div class="col col-lg-2"></div>
+    </div>
+  </div>
 
 
 
