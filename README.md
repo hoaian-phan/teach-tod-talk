@@ -42,3 +42,6 @@ https://user-images.githubusercontent.com/98496276/182679311-5be39891-237a-4576-
 - Add database for user account and data storage
 - Give users the option to create word lists and add pictures to create their own lesson plan
 
+
+## Credits:
+- Many thanks to Unsplash and their contributors for the incredible photos.
