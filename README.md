@@ -3,7 +3,7 @@
 - This simple app is designed to provide quality time for parents and toddlers via communication, explanation, and demonstration. Getting the words right should not be the only priority because your child will get to that level; for now, enjoying time, seeing things, talking, making noises and laughing are all he needs.
 
 ## Technologies ##
-Python, Flask, JavaScript, HTML, CSS, Bootstrap. Integrated with Web Speech API for speed recognition.
+Python, Flask, JavaScript, HTML, CSS, Bootstrap. Integrated with Web Speech API for speech recognition.
 
 ## Status ##
 - Start date: Jul 26, 2022
