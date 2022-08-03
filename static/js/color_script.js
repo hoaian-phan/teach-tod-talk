@@ -28,7 +28,7 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 const diagnostic = document.querySelector('.output');
-const bg = document.querySelector('.color_change');
+const bg = document.querySelector('section');
 
 document.body.onclick = function () {
   recognition.start();
@@ -46,7 +46,7 @@ recognition.onresult = function (event) {
   // We then return the transcript property of the SpeechRecognitionAlternative object
   let color = event.results[0][0].transcript;
   color = color.toLowerCase();
-  diagnostic.textContent = 'Result received: ' + color + '. ';
+  diagnostic.textContent = 'Result received: ' + color;
   if (colors.includes(color)) {
     bg.style.backgroundColor = color;
     console.log('Confidence: ' + event.results[0][0].confidence);
