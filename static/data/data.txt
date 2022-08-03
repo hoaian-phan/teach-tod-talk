@@ -24,7 +24,7 @@ CATEGORIES = {
       {'tiger': '/static/image/tiger.jpg'},
       {'turtle': '/static/image/turtle.jpg'},
       {'monkey': '/static/image/monkey.jpg'},
-      {'deer': '/static/image/deer.jpg'},
+      {'rabbit': '/static/image/rabbit.jpg'},
       {'mouse': '/static/image/mouse.jpg'},
       {'dolphin': '/static/image/dolphin.jpg'},
       {'crab': '/static/image/crab.jpg'},
@@ -33,9 +33,9 @@ CATEGORIES = {
     "advanced": [ 
       {'zebra': '/static/image/zebra.jpg'},
       {'shark': '/static/image/shark.jpg'},
-      {'rabbit': '/static/image/rabbit.jpg'},
+      {'koala': '/static/image/koala.jpg'},
       {'shrimp': '/static/image/shrimp.jpg'},
-      {'bee': '/static/image/bee.jpg'},
+      {'snake': '/static/image/snake.jpg'},
       {'butterfly': '/static/image/butterfly.jpg'},
       {'lobster': '/static/image/lobster.jpg'},
       {'caterpillar': '/static/image/caterpillar.jpg'},
@@ -56,7 +56,7 @@ CATEGORIES = {
       {'banana': '/static/image/banana.jpg'},
       {'pear': '/static/image/pear.jpg'}, 
       {'grape': '/static/image/grape.jpg'},
-      {'duck': '/static/image/duck.jpg'}, 
+      {'strawberry': '/static/image/strawberry.jpg'}, 
       {'orange': '/static/image/orange.jpg'}, 
       {'lemon': '/static/image/lemon.jpg'},
       {'mango': '/static/image/mango.jpg'}, 
@@ -64,7 +64,7 @@ CATEGORIES = {
       {'cherry': '/static/image/cherry.jpg'}
     ],
     "medium": [
-      {'strawberry': '/static/image/strawberry.jpg'},
+      {'fig': '/static/image/fig.jpg'},
       {'coconut': '/static/image/coconut.jpg'},
       {'peach': '/static/image/peach.jpg'},
       {'blueberry': '/static/image/blueberry.jpg'},
@@ -91,7 +91,6 @@ CATEGORIES = {
       {'lychee': '/static/image/lychee.jpg'},
       {'pomegranate': '/static/image/pomegranate.jpg'},
       {'tangerine': '/static/image/tangerine.jpg'},
-      {'wintermelon': '/static/image/wintermelon.jpg'}
     ]
   }
 }
