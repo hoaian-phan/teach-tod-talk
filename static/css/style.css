@@ -10,7 +10,10 @@ h2 {
   font-family: 'Architects Daughter', cursive;
 }
 
-
+h3,
+h4 {
+  text-shadow: -1px 0 blanchedalmond, 0 1px blanchedalmond, 1px 0 blanchedalmond, 0 -1px blanchedalmond;
+}
 
 /* banner homepage */
 h1.banner {
@@ -44,20 +47,20 @@ h1.banner {
   border: 1px solid #7FD6E6;
 }
 
-/* color lessons */
-h3,
-h4 {
-  text-shadow: -1px 0 blanchedalmond, 0 1px blanchedalmond, 1px 0 blanchedalmond, 0 -1px blanchedalmond;
-}
 
+/* color lessons */
 h1.color_banner {
   background-image: url("/static/image/pencil-diag.jpg");
   background-size: cover;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgb(0 0 0 / 20%);
-  /* color: white; */
 }
 
+.content {
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 20%);
+  background-color: #FADCD9;
+}
 
 /* list of color display */
 .color_list,
@@ -71,6 +74,7 @@ h1.color_banner {
 .word_display {
   border: 1px solid black;
   border-radius: 50px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 20%);
   width: 175px;
   height: 50px;
   text-align: center;
@@ -78,22 +82,35 @@ h1.color_banner {
   font-weight: 400;
 }
 
+.word_display {
+  background-color: #D4F1F4;
+}
+
+/* word banner */
+h1.word_banner {
+  background-image: url("/static/image/animals-full.jpg");
+  /* background-size: cover; */
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 20%);
+}
 
 
 
+.output {
+  margin-top: 16rem;
+}
 
-/* background for color change */
-.color_change,
-.word_result {
+/* background for word result */
+/* .word_result {
   border: 1px solid black;
   background-color: white;
   border-radius: 20px;
   width: 300px;
   height: 200px;
   text-align: center;
-}
+} */
 
 /* image size */
 img {
-  height: 100%;
+  width: 35%;
 }
